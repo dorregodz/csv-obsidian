@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { Root, createRoot } from "react-dom/client";
 import { WorkspaceLeaf, TextFileView } from 'obsidian';
 import * as Papa from 'papaparse';
-import DataTable  from "src/components/DataTable"
+import TableContainer from "src/components/table/TableContainer";
 
 export const CSV_VIEW_TYPE = 'csv-view'
 
@@ -48,7 +48,7 @@ export default class CsvView extends TextFileView {
 
         this.root.render(
 			<StrictMode>
-				<DataTable data={parsed.data} />
+                <TableContainer data={parsed.data}/>
 			</StrictMode>,
 		);
     }
