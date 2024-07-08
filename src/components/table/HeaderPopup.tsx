@@ -110,7 +110,7 @@ const HeaderPopup = ({
       {isExpanded && (
         <div ref={setPopperElement} style={{...styles.popper, zIndex: 3}} {...attributes.popper}>
           <div className='header-popup'>
-            <div className='w-full' style={{marginBottom: 4, paddingTop: "0.75rem", paddingLeft: "0.75rem", paddingRight: "0.75rem"}}>
+            <div className='header-popup-name-wrapper w-full'>
                 <input
                     className='form-input'
                     ref={inputRef}

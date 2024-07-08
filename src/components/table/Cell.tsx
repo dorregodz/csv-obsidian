@@ -41,7 +41,7 @@ const Cell = ({
       html={(value.value && value.value.toString()) || ""}
       onChange={onChange}
       onBlur={() => setValue((old) => ({value: old.value, update: true}))}
-      className='data-input'
+      className='table-cell'
     />
 }
 

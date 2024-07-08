@@ -36,7 +36,7 @@ const Header = ({
 
   return id !== 999999 ? (
     <>
-      <div {...getHeaderProps({style: {display: "inline-block"}})} className='th noselect'>
+      <div {...getHeaderProps()} className='th noselect'>
         <div className='th-content' onClick={() => setIsPopupExpanded(true)} ref={setReferenceElement}>
           {label}
         </div>
@@ -53,7 +53,7 @@ const Header = ({
       />
     </>
   ) : (
-    <div {...getHeaderProps({style: {display: "inline-block"}})} className='th table-noselect'>
+    <div {...getHeaderProps()} className='th table-noselect'>
       <div
         className='th-content add-column'
         onClick={(e) => dataDispatch({type: "add_column_to_left", columnId: 999999, focus: true})}>

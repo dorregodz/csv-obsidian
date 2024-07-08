@@ -71,17 +71,14 @@ const Table = ({columns, data, dispatch: dataDispatch, skipReset} : TableProps) 
               </div>
             );
           })}
-          <div style={{
-            display: "flex",
-            flexDirection: "row"
-          }}>
-            <div style={{flexGrow: '1'}} className='tr add-row' onClick={() => dataDispatch({type: "add_row"})}>
+          <div className="t-foot-container">
+            <div className='tr t-foot add-row' onClick={() => dataDispatch({type: "add_row"})}>
               <span className='svg-icon svg-gray' style={{marginRight: 4}}>
                 <PlusIcon />
               </span>
               New
             </div>
-            <div className='tr add-row' onClick={() => dataDispatch({type: "add_row"})}>
+            <div className='tr t-foot' onClick={() => dataDispatch({type: "add_row"})}>
               Save
             </div>
           </div>
