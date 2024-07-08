@@ -1,7 +1,6 @@
 import { useEffect, useReducer } from "react";
-import "../../../styles.css";
 import Table from "./Table";
-import reducer from "src/components/state/tableReducer";
+import reducer from "src/state/tableReducer";
 
 function TableContainer({data, onSave} : {data: Array<object>, onSave: Function}) {
   const columns : Array<any> = Object.keys(data[0]).map(key => ({
