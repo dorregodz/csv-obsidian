@@ -16,10 +16,10 @@ interface TableProps {
   columns: Array<any>
   data: Array<any>
   dispatch: Function
-  skipReset: Boolean
+  save: Function
 }
 
-const Table = ({columns, data, dispatch: dataDispatch, skipReset} : TableProps) : ReactNode =>{
+const Table = ({columns, data, dispatch: dataDispatch, save} : TableProps) : ReactNode =>{
   const {getTableProps, getTableBodyProps, headerGroups, rows, prepareRow} = useTable(
     {
       columns,
@@ -72,14 +72,14 @@ const Table = ({columns, data, dispatch: dataDispatch, skipReset} : TableProps) 
             );
           })}
           <div className="t-foot-container">
+            <div className='tr t-foot' onClick={() => save()}>
+              Save
+            </div>
             <div className='tr t-foot add-row' onClick={() => dataDispatch({type: "add_row"})}>
               <span className='svg-icon svg-gray' style={{marginRight: 4}}>
                 <PlusIcon />
               </span>
               New
-            </div>
-            <div className='tr t-foot' onClick={() => dataDispatch({type: "add_row"})}>
-              Save
             </div>
           </div>
         </div>
