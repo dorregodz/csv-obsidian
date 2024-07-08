@@ -12,7 +12,7 @@ function shortId() {
 interface Column {
     id: number
     label: string
-    [key: string]: any //TODO
+    [key: string]: any
 }  
 
 interface HeaderProps {

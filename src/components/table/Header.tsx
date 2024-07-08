@@ -5,7 +5,7 @@ import HeaderPopup from "src/components/table/HeaderPopup";
 
 interface Column {
   id: number
-  [key: string]: any //TODO
+  [key: string]: any
 }
 
 interface HeaderProps {

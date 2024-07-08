@@ -25,10 +25,7 @@ const Table = ({columns, data, dispatch: dataDispatch, save} : TableProps) : Rea
       columns,
       data,
       defaultColumn,
-      dataDispatch, // TODO, necesario parece pa pasarllo aos fillos
-      // autoResetSortBy: !skipReset,
-      // autoResetFilters: !skipReset,
-      // autoResetRowState: !skipReset,
+      dataDispatch // Needed for passing it to the childs
     },
     useFlexLayout,
     useResizeColumns,
@@ -38,7 +35,7 @@ const Table = ({columns, data, dispatch: dataDispatch, save} : TableProps) : Rea
   function isTableResizing() {
     for (let headerGroup of headerGroups) {
       for (let column of headerGroup.headers) {
-        const col : any = column // TODO
+        const col : any = column
         if (col.isResizing) {
           return true;
         }
