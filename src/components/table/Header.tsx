@@ -1,4 +1,4 @@
-import { ReactNode, useState, useEffect, useRef } from "react";
+import { ReactNode, useState, useEffect } from "react";
 import { usePopper } from "react-popper";
 import PlusIcon from "src/components/svg/Plus";
 import HeaderPopup from "src/components/table/HeaderPopup";
@@ -20,8 +20,9 @@ const Header = ({
   dataDispatch
 } : HeaderProps) : ReactNode => {
   const [isPopupExpanded, setIsPopupExpanded] = useState(createdJustNow || false);
-  const [referenceElement, setReferenceElement] = useState(null);
-  const [popperElement, setPopperElement] = useState(null);
+  
+  const [referenceElement, setReferenceElement] = useState<any>(null);
+  const [popperElement, setPopperElement] = useState<any>(null);
   const {styles, attributes} = usePopper(referenceElement, popperElement, {
     placement: "bottom",
     strategy: "absolute"

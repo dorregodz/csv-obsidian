@@ -1,4 +1,4 @@
-import { ReactNode, useState, useEffect } from "react";
+import { ReactNode, useState, useEffect, useRef } from "react";
 import ArrowUpIcon from "src/components/svg/ArrowUp";
 import ArrowDownIcon from "src/components/svg/ArrowDown";
 import ArrowLeftIcon from "src/components/svg/ArrowLeft";
@@ -34,8 +34,7 @@ const HeaderPopup = ({
     setPopperElement,
     popper: {styles, attributes}
 } : HeaderProps) : ReactNode => {
-  // const inputRef = useRef<HTMLInputElement>(null); <<<-----------------
-  const [inputRef, setInputRef] = useState<any>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const [header, setHeader] = useState(columnLabel);
 
   const buttons = [
@@ -90,13 +89,6 @@ const HeaderPopup = ({
     setHeader(columnLabel);
   }, [columnLabel]);
 
-  useEffect(() => {
-    if (inputRef) {
-      inputRef.focus();
-      inputRef.select();
-    }
-  }, [inputRef]);
-
   function handleKeyDown(e: any) {
     if (e.key === "Enter") {
       dataDispatch({type: "update_column_header", columnId, label: header});
@@ -121,7 +113,7 @@ const HeaderPopup = ({
             <div className='w-full' style={{marginBottom: 4, paddingTop: "0.75rem", paddingLeft: "0.75rem", paddingRight: "0.75rem"}}>
                 <input
                     className='form-input'
-                    ref={setInputRef}
+                    ref={inputRef}
                     type='text'
                     value={header}
                     style={{width: "100%"}}
