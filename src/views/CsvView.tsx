@@ -32,6 +32,7 @@ export default class CsvView extends TextFileView {
         const container = this.containerEl.children[1];
         container.empty();
 
+        this.createSaveButton();
         this.renderReactCsvTable(container, data);
     }
 
@@ -74,5 +75,25 @@ export default class CsvView extends TextFileView {
                 <TableContainer data={parsed.data} onSave={(data: Array<object>) => this.onSave(data)}/>
 			</StrictMode>,
 		);
+    }
+
+    private createSaveButton() : void {
+        const saveCsvBtnClassName = 'save-csv-btn';
+
+        const viewHeader = this.containerEl.children[0] as HTMLElement;
+        const viewActions = viewHeader.querySelector('.view-actions') as HTMLElement;
+
+        if (viewActions.querySelector(`.${saveCsvBtnClassName}`)) {
+            return;
+        }
+
+        const button = document.createElement('button');
+        button.innerText = "Save to file";
+        button.className = `clickable-icon view-action ${saveCsvBtnClassName}`;
+        // @ts-ignore ts(2339)
+        button.onclick = () => {window.onSaveDzCsv && window.onSaveDzCsv()};
+
+        viewActions.insertBefore(button, viewActions.firstChild);
+
     }
 }

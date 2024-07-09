@@ -18,6 +18,13 @@ function TableContainer({data, onSave} : {data: Array<object>, onSave: Function}
   const [state, dispatch] = useReducer(reducer, {columns, data});
 
   useEffect(() => {
+    // @ts-ignore ts(2339)
+    window.onSaveDzCsv = () => {
+      onSave(state.data)
+    }
+  })
+
+  useEffect(() => {
     dispatch({ type: "enable_reset" });
   }, [state.data, state.columns]);
 
@@ -29,7 +36,6 @@ function TableContainer({data, onSave} : {data: Array<object>, onSave: Function}
             columns={state.columns}
             data={state.data}
             dispatch={dispatch}
-            save={() => onSave(state.data)}
           />
         </div>
       </div>
